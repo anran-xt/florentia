@@ -56,14 +56,14 @@
 }
 
 
-#gallery{
+.itemList{
     width:936px;
     margin:auto;
     padding:20px 0;
     background: #fff;
     font-size: 0;
 }
-#gallery:after{
+.itemList:after{
     content: "";
     display: block;
     clear: both;
@@ -71,7 +71,7 @@
 /*#gallery .item:first-child{*/
     /*margin-left: -8px;*/
 /*}*/
-#gallery .item{
+.itemList .item{
     width:216px;
     height:383px;
     padding:8px;
@@ -80,11 +80,12 @@
     float: left;
     margin:0 8px 35px 0;
     transition: box-shadow .3s ease-out;
+    text-align: left;
 }
 /*#gallery .item:nth-child(4){*/
     /*margin-right: -8px;*/
 /*}*/
-#gallery .item:hover{
+.itemList .item:hover{
     box-shadow: rgba(148,140,140,0.2) 0px 2px 2px,
     rgba(148,140,140,0.2) 0px 4px 4px,
     rgba(148,140,140,0.2) 0px 8px 8px,
@@ -92,23 +93,93 @@
     rgba(148,140,140,0.2) 0px 32px 32px,
     rgba(148,140,140,0) 0px 64px 64px;
 }
-#gallery .item img{
+.itemList .item img{
     width:216px;
     height:288px;
     margin-bottom: 20px;
 }
-#gallery .item .goodsName{
+.itemList .item .goodsName{
     margin:5px 0 10px 0;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-#gallery .item .goodsPrice .oldPrice{
+.itemList .item .goodsPrice .oldPrice{
     margin-left: 10px;
     color:#bbb;
     text-decoration: line-through;
 }
-#gallery .item .goodsPrice .discount{
+.itemList .item .goodsPrice .discount{
     float: right;
+}
+
+#paging{
+    width:936px;
+    height:40px;
+    margin: auto;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    padding-bottom:140px;
+}
+#paging .pageBtn{
+    display: inline-block;
+    width:88px;
+    height:38px;
+    border: 1px solid #000;
+    text-align: center;
+    border-radius: 2px;
+    margin:0 15px;
+    cursor: pointer;
+}
+#paging .prevPage{
+    color:#ccc;
+    border-color:#ccc;
+}
+#paging .pageNum{
+    display: inline-block;
+    width:36px;
+    height:38px;
+    border: 1px solid #000;
+    background: #fff;
+    margin: 0 5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#paging .nowPage{
+    background: #000;
+    color:#fff;
+}
+#guess{
+    width:936px;
+    margin:auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+#guess .guessTitleWrap{
+    position: relative;
+    width:100%;
+}
+#guess .guessLike{
+    width:300px;
+    height:36px;
+    line-height: 36px;
+    background: #000;
+    color:#fff;
+    margin: auto;
+    letter-spacing: 4px;
+    z-index: 9;
+}
+#guess .guessLike:after{
+    content: "";
+    width:2000px;
+    height:1px;
+    background: #000;
+    display: block;
+    position: absolute;
+    left:0;
+    top:50%;
+    z-index: -9;
 }

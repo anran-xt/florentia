@@ -1,0 +1,281 @@
+#product{
+    margin-top:110px;
+    width:100%;
+    position: relative;
+    min-height: 450px;
+    margin-bottom: 40px;
+
+}
+#product:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#product .showList{
+    position: absolute;
+    top:0;
+    width:100%;
+    font-size: 0;
+    z-index: -9;
+}
+#product .showList .showItem{
+    width:25%;
+    display: inline-block;
+    position: relative;
+}
+#product .showList .showItem img{
+    width:100%;
+    vertical-align: middle;
+}
+#product .showList .showItem .mask{
+    display: block;
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background: hsla(0,0%,100%,.7);
+}
+#product .showList .showing .mask{
+    background: none;
+}
+
+
+#product .swiperWrap{
+    width:55px;
+    height:380px;
+    left:20%;
+    top:0;
+    margin:30px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+#product .swiperList{
+    overflow: hidden;
+}
+#product .swiperList .swiperItem{
+    margin-bottom:20px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+#product .swiperList .swiperItem img{
+    width:100%;
+    display: inline-block;
+}
+#product .swiperWrap .arrow{
+    height:30px;
+    width:100%;
+    position: absolute;
+    cursor: pointer;
+}
+#product .swiperWrap .arrowUp{
+    top:-30px;
+    background: url("../img/arrow_up_a.png") center no-repeat;
+}
+#product .swiperWrap .arrowDown{
+    bottom:-30px;
+    background: url("../img/arrow_down_a.png") center no-repeat;
+}
+
+
+#product .turnWrap{
+    width:25%;
+    height: 100%;
+    position: absolute;
+    left:25%;
+    top:0;
+    /*background: #0ff;*/
+}
+#product .turnWrap .turn{
+    width:50px;
+    height:50px;
+    background: #f0f;
+    position: absolute;
+    top:50%;
+    margin-top:-25px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+#product .turnWrap .turnLeft{
+    left:0;
+    background: url("../img/icon_arrow_left.png") center no-repeat;
+}
+#product .turnWrap .turnRight{
+    right:0;
+    background: url("../img/icon_arrow_right.png") center no-repeat;
+}
+
+
+#product .productDes{
+    width:350px;
+    padding:20px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px #ddd;
+    background: #fff;
+    /*top:30px;*/
+    /*right:100px;*/
+    /*position: absolute;*/
+    float: right;
+    margin:30px 100px 0 0;
+}
+#product .productDes h2{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+}
+#product .productDes h3{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+#product .productDes .price{
+    margin:10px 0;
+    font-size: 14px;
+}
+#product .productDes .nowPrice{
+    color:#c92f49;
+    font-size: 14px;
+    line-height: 20px;
+}
+#product .productDes .oldPrice{
+    color:#999;
+    margin-left: 10px;
+    text-decoration: line-through;
+}
+#product .productDes .discount{
+    color:#999;
+}
+#product .productDes .color{
+    font-size: 12px;
+    line-height: 1.5;
+    color:#999;
+    padding:10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+#product .productDes .color span{
+    color:#000;
+    margin-left:20px;
+}
+#product .productDes .proSize{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+#product .productDes .proSize span{
+    font-size: 12px;
+    line-height: 1.5;
+    color:#999;
+    padding:10px 0;
+    display: block;
+}
+#product .productDes .proSize .size{
+    width: 93px;
+    height:28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 12px;
+    color:#999;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+#product .productDes .num{
+    font-size: 12px;
+    padding:10px 0;
+    color:#999;
+    line-height: 1.5;
+    border-bottom: 1px solid #ddd;
+}
+#product .productDes .num span{
+    margin-left: 20px;
+    color:#000;
+}
+#product .productDes .num .arrowDown{
+    display: inline-block;
+    width:8px;
+    height:14px;
+    background: url("../img/icon-left.png") center no-repeat;
+    float: right;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+#product .productDes .add{
+    display: block;
+    width:310px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    background: #000;
+    border-radius: 2px;
+    color:#fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+#product .productDes .treasure{
+    display: block;
+    width:310px;
+    height:38px;
+    line-height: 40px;
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    color:#666;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #666;
+}
+#product .productDes .treasure i{
+    display: inline-block;
+    width:16px;
+    height:14px;
+    background: url("../img/icon-love.png") center no-repeat;
+    vertical-align:  -2px;
+    margin-right:8px;
+}
+#product .productDes .tips{
+    font-size: 12px;
+    margin:10px 0;
+}
+#product .productDes .tips i{
+    font-style: normal;
+}
+#product .productDes .tips .tipRight{
+    float: right;
+    color:#999;
+}
+#product .productDes .title{
+    font-size: 12px;
+    line-height: 18px;
+    padding:10px 0;
+    border-bottom: 1px solid #ddd;
+}
+#product .productDes .title .handle{
+    float: right;
+    font-style: normal;
+    font-size: 12px;
+    color:#999;
+}
+#product .productDes .text{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
+#layoutCenter{
+    width:936px;
+    margin: auto;
+    font-size: 0;
+}
+#layoutCenter .largeImg{
+    width:100%;
+}
+#layoutCenter .middleImg{
+    margin:2%;
+    width: 46%;
+    display: inline-block;
+}
+
+
