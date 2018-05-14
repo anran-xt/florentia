@@ -1,0 +1,141 @@
+html,body,p,ul,ol,h1,h2,h3,h4,h5{
+    margin:0;
+}
+html{
+    transition: all .5s linear;
+}
+p,ul{
+    padding:0;
+}
+a{
+    text-decoration: none;
+    color:#686868;
+}
+img{
+    display: block;
+}
+li{
+    list-style: none;
+}
+h1,h2,h3,h4,h5{
+    font-weight: normal;
+}
+
+#head{
+    background: #fff;
+    width:100%;
+    position: fixed;
+    /*height:110px;*/
+    box-shadow: 0 1px 1px #eee;
+    top:0;
+    z-index: 9;
+}
+
+
+#head .wrap{
+    width:1170px;
+    padding:14px 10px;
+    margin:0 auto;
+}
+#head .wrap:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#head .leftLogo img{
+    width:150px;
+    height:82px;
+    float: left;
+}
+
+#head .nav{
+    width:80%;
+    height:71px;
+    float: right;
+}
+#head .nav .topNav{
+    float: right;
+}
+#head .nav .topNav li{
+    float: left;
+    line-height: 1.15;
+    font-size: 12px;
+}
+#head .nav .topNav li span{
+    width:1px;
+    height:12px;
+    background-color:#aaa;
+    margin:0 10px;
+    display: inline-block;
+}
+#head .nav .mainNavArea{
+    margin-top:54px;
+    line-height: 16px;
+}
+#head .nav .mainNav{
+    text-align: center;
+    position: absolute;
+    width:70%;
+    left:15%;
+}
+#head .nav .mainNav .item{
+    display: inline-block;
+    font-size: 14px;
+    padding:0 30px 28px;
+    position: relative;
+}
+#head .nav .mainNav .item .subList{
+    width:100%;
+    background: #fff;
+    text-align: center;
+    padding-bottom:50px;
+    position: fixed;
+    left:0;
+    top:110px;
+    display: none;
+}
+
+
+
+#head .nav .mainNav .item .subList .subItem{
+    display: inline-block;
+    width:150px;
+    vertical-align: top;
+    margin-top: 20px;
+}
+#head .nav .mainNav .item .subList .subItem>a{
+    color:#000;
+    font-size: 14px;
+}
+#head .nav .mainNav .item .subList .subItem .innerList a{
+    display: block;
+    margin:20px 0;
+    font-size:14px;
+}
+
+
+
+
+
+#head .nav .rightNav{
+    float: right;
+}
+#head .nav .rightNav li{
+    float: left;
+    line-height: 1;
+    margin-left:20px;
+}
+#head .nav .rightNav li a{
+    display: inline-block;
+    width:14px;
+    height:14px;
+}
+#head .nav .rightNav .iLike a{
+    background: url("../img/icon-like.png") center no-repeat;
+}
+#head .nav .rightNav .find a{
+    background: url("../img/icon-search.png") center no-repeat;
+}
+#head .nav .rightNav .cart a{
+    background: url("../img/icon-cart.png") center no-repeat;
+}

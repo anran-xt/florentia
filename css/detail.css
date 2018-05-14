@@ -1,0 +1,114 @@
+#productFilter{
+    width:100%;
+    background: #fff;
+    height:103px;
+    text-align: center;
+    margin-top:110px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+}
+#productFilter .filter{
+    width: 936px;
+    margin: auto;
+    text-align: left;
+    padding:16px 0;
+    height:18px;
+    font-size: 12px;
+}
+
+#productFilter .filter .filterItem{
+    padding: 0 30px;
+    border-right: 1px solid #000;
+    line-height: 12px;
+    display: inline-block;
+}
+#productFilter .filter .filterItem .filterIcon{
+    display: inline-block;
+    width:7px;
+    height:10px;
+    background: url("../img/icon-select.png") center no-repeat;
+    margin-left:10px;
+}
+#productFilter .filter .filterItem:nth-child(1){
+    padding-left:0;
+
+}
+#productFilter .filterClassify{
+    border-bottom: 1px solid #ebebeb;
+}
+#productFilter .filterClassify .filterItem:nth-child(1){
+    color:#999;
+}
+#productFilter .filterDetail .filterItem{
+    color:#999;
+}
+#productFilter .filterDetail .ranking{
+    display: inline-block;
+    float: right;
+}
+#productFilter .filterDetail .ranking .rankingDes{
+    padding-right: 5px;
+    border-color:#999;
+}
+#productFilter .filterDetail .ranking .rankingBy{
+    border-right: none;
+    color:#000;
+}
+
+
+#gallery{
+    width:936px;
+    margin:auto;
+    padding:20px 0;
+    background: #fff;
+    font-size: 0;
+}
+#gallery:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+/*#gallery .item:first-child{*/
+    /*margin-left: -8px;*/
+/*}*/
+#gallery .item{
+    width:216px;
+    height:383px;
+    padding:8px;
+    font-size: 14px;
+    line-height: 20px;
+    float: left;
+    margin:0 8px 35px 0;
+    transition: box-shadow .3s ease-out;
+}
+/*#gallery .item:nth-child(4){*/
+    /*margin-right: -8px;*/
+/*}*/
+#gallery .item:hover{
+    box-shadow: rgba(148,140,140,0.2) 0px 2px 2px,
+    rgba(148,140,140,0.2) 0px 4px 4px,
+    rgba(148,140,140,0.2) 0px 8px 8px,
+    rgba(148,140,140,0.2) 0px 16px 16px,
+    rgba(148,140,140,0.2) 0px 32px 32px,
+    rgba(148,140,140,0) 0px 64px 64px;
+}
+#gallery .item img{
+    width:216px;
+    height:288px;
+    margin-bottom: 20px;
+}
+#gallery .item .goodsName{
+    margin:5px 0 10px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#gallery .item .goodsPrice .oldPrice{
+    margin-left: 10px;
+    color:#bbb;
+    text-decoration: line-through;
+}
+#gallery .item .goodsPrice .discount{
+    float: right;
+}
