@@ -1,0 +1,161 @@
+body{
+    margin:0;
+    width:100%;
+    overflow-x: hidden;
+}
+h1,h2,h3,h4,h5,h6{
+    padding:0;
+    margin: 0;
+}
+p{
+    margin:0;
+}
+img{
+    display: block;
+}
+.bg{
+    position: absolute;
+    height: 1080px;
+    width: 1920px;
+    left:50%;
+    transform: translate(-50%);
+}
+.logo{
+    position: absolute;
+    top:90px;
+    z-index: 2;
+    left:50%;
+    margin-left:-90px;
+}
+
+.mutiPart{
+    position: absolute;
+    z-index: 2;
+    top:290px;
+    left:50%;
+    transform: translate(-50%);
+    background: #fff;
+    border-radius: 4px;
+    width:1180px;
+    height:500px;
+}
+.mutiPart .leftLogin,.mutiPart .rightRetister{
+    padding:60px;
+    box-sizing: border-box;
+    width:50%;
+    float: left;
+
+}
+.mutiPart .loginArea{
+    display: none;
+}
+.mutiPart h2{
+    font-size: 28px;
+    padding-bottom:50px;
+}
+.mutiPart .leftLogin{
+    float: left;
+}
+.mutiPart  label{
+    height:26px;
+    display: block;
+    font-size: 14px;
+}
+.mutiPart input{
+    display: block;
+    width:100%;
+    padding:0 10px;
+    height:40px;
+    line-height: 40px;
+    border: 1px solid #d8d8d8;
+    outline: none;
+    vertical-align: middle;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.mutiPart .leftLogin .loginBtn{
+    width:130px;
+    height:36px;
+    background: #000;
+    color:#fff;
+    font-size: 12px;
+    border-radius: 2px;
+    line-height: 36px;
+    text-align: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.mutiPart .leftLogin .loginBtn:hover{
+    background: rgba(0,0,0,0.8);
+}
+.mutiPart .rightRetister .registerBtn{
+    width:130px;
+    height:36px;
+    background: #d2003c;
+    color:#fff;
+    font-size: 12px;
+    border-radius: 2px;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+}
+.mutiPart .rightRetister .registerBtn:hover{
+    background: rgba(210,0,60,0.8);
+}
+.mutiPart .rightRetister .text{
+    line-height: 28px;
+    padding-top:24px;
+    font-size: 14px;
+}
+
+.mutiPart .registerPart{
+    width:470px;
+    margin:auto;
+    padding-top:60px;
+}
+.mutiPart .registerPart h2{
+    height:32px;
+    line-height: 32px;
+    padding-bottom:50px;
+    font-size: 28px;
+}
+.mutiPart .registerPart h2 .tips{
+    float: right;
+    font-size: 14px;
+    color:#404040;
+    font-weight: 400;
+}
+.mutiPart .registerPart h2 .tips a{
+    color:#d4003b;
+}
+
+.mutiPart .registerPart p{
+    font-size: 12px;
+    padding-bottom: 10px;
+    line-height: 13px;
+}
+.mutiPart .registerPart p .checkbox{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    background: url("../img/smallicon.png") -22px -42px no-repeat ;
+    margin:0 5px -3px 0;
+}
+.mutiPart .registerPart p a{
+    color:#333;
+}
+.mutiPart .registerPart .loginBtn{
+    width:130px;
+    height:36px;
+    line-height: 36px;
+    text-align: center;
+    background: #d2003c;
+    font-size: 12px;
+    color:#fff;
+    border-radius: 2px;
+    margin:30px auto 0;
+    cursor: pointer;
+}
+.mutiPart .registerPart .loginBtn:hover{
+    background: rgba(210,0,60,0.8);
+}

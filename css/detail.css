@@ -21,6 +21,8 @@
     border-right: 1px solid #000;
     line-height: 12px;
     display: inline-block;
+    position: relative;
+    cursor: pointer;
 }
 #productFilter .filter .filterItem .filterIcon{
     display: inline-block;
@@ -28,20 +30,45 @@
     height:10px;
     background: url("../img/icon-select.png") center no-repeat;
     margin-left:10px;
-    cursor: pointer;
 }
 #productFilter .filter .filterItem:nth-child(1){
     padding-left:0;
+}
+
+#productFilter .filter .filterItem .more{
+    width:100%;
+    position: absolute;
+    margin:5px 0 0 -30px;
+    border: 1px solid #ddd;
+    background: #fff;
+    z-index: 2;
+    display: none;
 
 }
+#productFilter .filter .filterItem .more .moreItem{
+    display: block;
+    text-align: center;
+    height:22px;
+    line-height: 22px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+#productFilter .filter .filterItem .more .moreItem:last-child{
+    border: none;
+}
+#productFilter .filter .filterItem .more .moreItem:hover{
+    background: #ddd;
+}
+
+
 #productFilter .filterClassify{
     border-bottom: 1px solid #ebebeb;
 }
-#productFilter .filterClassify .filterItem:nth-child(1){
+#productFilter .filterClassify .filterItem:nth-child(1),#productFilter .filterClassify .showAll{
     color:#999;
 }
 #productFilter .filterDetail .filterItem{
-    color:#999;
+    /*color:#999;*/
 }
 #productFilter .filterDetail .ranking{
     display: inline-block;
@@ -50,6 +77,7 @@
 #productFilter .filterDetail .ranking .rankingDes{
     padding-right: 5px;
     border-color:#999;
+    color:#999;
 }
 #productFilter .filterDetail .ranking .rankingBy{
     border-right: none;
