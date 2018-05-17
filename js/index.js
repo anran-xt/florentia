@@ -220,6 +220,7 @@ new ScrollTrigger();
                 "prev": function () {
                     this.isMoving = true;   //表示正在运动
                     this.swiperItem.eq(this.prev)
+                        .stop()
                         .animate({
                             left: this.swiperItem.width()
                         })
@@ -228,6 +229,7 @@ new ScrollTrigger();
                         .css({
                             left: -this.swiperItem.width()
                         })
+                        .stop()
                         .animate({
                             left: 0
                         });
@@ -241,6 +243,7 @@ new ScrollTrigger();
                     this.isMoving = true;
                     // console.log(this.isMoving);
                     this.swiperItem.eq(this.prev)
+                        .stop()
                         .animate({
                             left: -this.swiperItem.width()
                         })
@@ -249,6 +252,7 @@ new ScrollTrigger();
                         .css({
                             left: this.swiperItem.width()
                         })
+                        .stop()
                         .animate({
                             left: 0
                         });
@@ -264,6 +268,7 @@ new ScrollTrigger();
                     if (this.prev > this.index) {
                         //右
                         this.swiperItem.eq(this.prev)
+                            .stop()
                             .animate({
                                 left: this.swiperItem.width()
                             })
@@ -272,6 +277,7 @@ new ScrollTrigger();
                             .css({
                                 left: -this.swiperItem.width()
                             })
+                            .stop()
                             .animate({
                                 left: 0
                             })
@@ -282,6 +288,7 @@ new ScrollTrigger();
                     } else {
                         //左
                         this.swiperItem.eq(this.prev)
+                            .stop()
                             .animate({
                                 left: -this.swiperItem.width()
                             })
@@ -290,6 +297,7 @@ new ScrollTrigger();
                             .css({
                                 left: this.swiperItem.width()
                             })
+                            .stop()
                             .animate({
                                 left: 0
                             })

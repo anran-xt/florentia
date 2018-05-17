@@ -4,7 +4,8 @@
     position: relative;
     min-height: 450px;
     margin-bottom: 40px;
-
+    overflow: hidden;
+    padding-bottom:20px;
 }
 #product:after{
     content: "";
@@ -17,6 +18,7 @@
     width:100%;
     font-size: 0;
     z-index: -9;
+    white-space: nowrap;
 }
 #product .showList .showItem{
     width:25%;
@@ -34,7 +36,7 @@
     height:100%;
     top:0;
     left:0;
-    background: hsla(0,0%,100%,.7);
+    background: hsla(0,0%,100%,.8);
 }
 #product .showList .showing .mask{
     background: none;
@@ -53,6 +55,7 @@
 
 #product .swiperList{
     overflow: hidden;
+    height:380px;
 }
 #product .swiperList .swiperItem{
     margin-bottom:20px;
@@ -87,6 +90,7 @@
     left:25%;
     top:0;
     /*background: #0ff;*/
+    max-height:450px;
 }
 #product .turnWrap .turn{
     width:50px;
@@ -279,3 +283,128 @@
 }
 
 
+
+#guess{
+    width:936px;
+    margin:auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+#guess .guessTitleWrap{
+    position: relative;
+    width:100%;
+}
+#guess .guessLike{
+    width:300px;
+    height:36px;
+    line-height: 36px;
+    background: #000;
+    color:#fff;
+    margin: auto;
+    letter-spacing: 4px;
+    z-index: 9;
+}
+#guess .guessLike:after{
+    content: "";
+    width:2000px;
+    height:1px;
+    background: #000;
+    display: block;
+    position: absolute;
+    left:0;
+    top:50%;
+    z-index: -9;
+}
+
+
+.itemList{
+    width:936px;
+    margin:auto;
+    padding:20px 0;
+    background: #fff;
+    font-size: 0;
+}
+
+.itemList .listWrap{
+    margin:0 -16px 0 -8px;
+}
+.itemList .listWrap:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.itemList .item{
+    width:216px;
+    height:383px;
+    padding:8px;
+    font-size: 14px;
+    line-height: 20px;
+    float: left;
+    margin:0 8px 35px 0;
+    transition: box-shadow .3s ease-out;
+    text-align: left;
+}
+
+.itemList .item:hover{
+    box-shadow: rgba(148,140,140,0.2) 0px 2px 2px,
+    rgba(148,140,140,0.2) 0px 4px 4px,
+    rgba(148,140,140,0.2) 0px 8px 8px,
+    rgba(148,140,140,0.2) 0px 16px 16px,
+    rgba(148,140,140,0.2) 0px 32px 32px,
+    rgba(148,140,140,0) 0px 64px 64px;
+}
+.itemList .item img{
+    width:216px;
+    height:288px;
+    margin-bottom: 20px;
+}
+.itemList .item .goodsName{
+    margin:5px 0 10px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.itemList .item .goodsPrice .oldPrice{
+    margin-left: 10px;
+    color:#bbb;
+    text-decoration: line-through;
+}
+.itemList .item .goodsPrice .discount{
+    float: right;
+}
+
+
+#brandSearch{
+    width:100%;
+    height:800px;
+    background: url("../img/shoppingCartBg.jpg") no-repeat center;
+    background-size:auto  100%;
+    margin:100px 0;
+    position: relative;
+}
+#brandSearch img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left: -135px;
+    margin-top:-120px;
+}
+#brandSearch .search{
+    width:128px;
+    height:34px;
+    border: 1px solid #fff;
+    background: transparent;
+    text-align: center;
+    line-height: 34px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-64px;
+    margin-top: 60px;
+    font-size: 14px;
+    color:#fff;
+    border-radius: 2px;
+}
