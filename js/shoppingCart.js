@@ -40,7 +40,8 @@ ProductSwiper.prototype={
         this.itemWidth=this.items.eq(0).width();
 
         if(event.data.turn=="right"){
-            if(this.firstIndex==4){
+            if(this.firstIndex==parseInt(this.items.length/2)){
+                console.log("change");
                 this.list.css("left",0);
                 this.firstIndex=0;
             }
@@ -87,3 +88,21 @@ ProductSwiper.prototype={
     }
 }
 new ProductSwiper("#product .showList","#product .turnWrap","#product .swiperWrap");
+
+
+
+
+//4.通过ajax加载index的head
+function loadPart(url,wrapPart) {
+    $(wrapPart).load(url);
+}
+new Promise(function (resolve) {
+    loadPart("index.html #head","#headWrap");
+    loadPart("index.html #footer","#footerWrap");
+    resolve("加载头尾完毕");
+}).then(function (res) {
+    console.log(res);
+    document.write(`<script src="common.js"></script>`);
+});
+
+

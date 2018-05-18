@@ -37,26 +37,18 @@ $libsArr = ["gfirstclass","gsecondclass", "gcolor", "gsizelist", "gsex"];
 function findLibs($arr, $conn)
 {
     global $gfirstclass;
+
     global $gsecondclass;
     $libsResArr = new stdClass();
     foreach ($arr as $key => $value) {
         $nowKey = $arr[$key];
-        $sql = "select distinct $value from goodstable where gfirstclass= '$gfirstclass'";
+        if($gsecondclass){
+            $sql = "select distinct $value from goodstable where gfirstclass= '$gfirstclass' and gsecondclass='$gsecondclass'";
+        }else{
+            $sql = "select distinct $value from goodstable where gfirstclass= '$gfirstclass'";
+        }
         $res = mysqli_query($conn, $sql);
         $res = mysqli_fetch_all($res);
-
-
-
-
-
-//        if($value=="gsizelist") echo json_encode($res);
-
-
-
-
-
-
-
 
 //        echo json_encode($res);
         if (sizeof($res) != 0) {
@@ -72,7 +64,7 @@ function findLibs($arr, $conn)
     }
     return $libsResArr;
 }
-
+//echo json_encode(findLibs($libsArr, $conn));
 $resArr->libsmsg = findLibs($libsArr, $conn); //添加附加信息
 
 echo json_encode($resArr);

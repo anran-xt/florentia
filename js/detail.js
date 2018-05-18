@@ -27,7 +27,7 @@ ChangeSrc.prototype = {
 }
 new ChangeSrc("#gallery .listWrap");
 
-//2.加载数据
+//2.加载数据模块
 function loadData(classObj, url, wrap) {
     // console.log(classObj);
     if (!classObj.bigclass || !url || !wrap) return;
@@ -61,13 +61,11 @@ loadData.prototype = {
     rendering: function (res) {
         // console.log(JSON.parse(res));
         var resArr = JSON.parse(res);   //拿到的全部数据
-        // console.log(resArr);
         var goodsList = resArr.goodsList; //拿出商品信息数据
         var libsMsg = resArr.libsmsg;     //拿出附加信息数据
         // console.log(libsMsg);
         //1.渲染商品数据
         this.renderGoods(goodsList);
-
 
         //2.渲染附加数据
         this.renderLibs(libsMsg);
@@ -183,7 +181,16 @@ loadData.prototype = {
         arr.forEach(function (item) {
             newarr=newarr.concat(item.split(","));
         });
-        arr=newarr;
+        var newTwoArr=[];
+        for(var i=0;i<newarr.length;i++) {
+            var items=newarr[i];
+            if($.inArray(items,newTwoArr)==-1) {
+                newTwoArr.push(items);
+            }
+        }
+        arr=newTwoArr;
+
+
         var str = "";
         arr.forEach(function (item) {
             str += `<span class="moreItem">${item}</span>`
@@ -207,18 +214,40 @@ loadData.prototype = {
         return str;
     }
 }
-//2.1实例化按大小分类加载数据
-new loadData({
-    bigclass: "鞋履",
-    // midclass: "上装"
-}, "http://127.0.0.1/florentia/data/1_loadGoods.php", "#gallery .listWrap");
+
 
 
 //3.读取cookie中缓存的bigclass和midclass来向后台发送请求
-// function getCookie() {
-//     $.cookie('bigclass', '首饰');
-//     console.log($.cookie('bigclass'));
-// }
-// getCookie();
+function getCookie() {
+    var opt={};
+    if(!$.cookie("bigclass")) return;
+    var bigclass=$.cookie("bigclass");
+
+    opt.bigclass=bigclass;
+    if($.cookie("midclass")){
+        var midclass=$.cookie("midclass");
+        opt.midclass=midclass;
+    }
+    var url="http://127.0.0.1/florentia/data/1_loadGoods.php";
+    var contanier="#gallery .listWrap";
+    new loadData(opt,url,contanier);
+}
+//获取cookie，开始加载数据
+getCookie();
+
+
+//4.通过ajax加载index的head
+function loadPart(url,wrapPart) {
+    $(wrapPart).load(url);
+}
+new Promise(function (resolve) {
+    loadPart("index.html #head","#headWrap");
+    loadPart("index.html #footer","#footerWrap");
+    resolve("加载头尾完毕");
+}).then(function (res) {
+    console.log(res);
+    document.write(`<script src="common.js"></script>`);
+});
+
 
 

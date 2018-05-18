@@ -1,57 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/13.
  */
-//3.更多品牌点击模块
-function MoreBrands(parent_selector,btn_selector){
 
-    this.parEle=$(parent_selector);
-    this.btnEle=$(btn_selector);
-    this.flag=false;
-    this.init();
-}
-MoreBrands.prototype={
-    constructor:MoreBrands,
-    init:function(){
-        this.btnEle.on("click",$.proxy(function(){
-            if(!this.flag){
-                this.parEle.animate({
-                    height:517
-                });
-                this.flag=true;
-                this.btnEle.children()
-                    .eq(0)
-                    .text("收起")
-                    .end()
-                    .eq(1)
-                    .css({
-                        border:"1px solid #000",
-                        borderTop:"none",
-                        borderRight:"none",
-                        marginBottom:"-4px"
-                    })
-
-            }else{
-                this.parEle.animate({
-                    height:340
-                });
-                this.flag=false;
-                this.btnEle.children()
-                    .eq(0)
-                    .text("查看更多")
-                    .end()
-                    .eq(1)
-                    .css({
-                        border:"1px solid #000",
-                        borderBottom:"none",
-                        borderLeft:"none",
-                        marginBottom:"0px"
-                    })
-            }
-
-        },this));
-    }
-};
-new MoreBrands("#brands .wrap","#brands .bottomMore");
 
 
 //4.head移入事件
@@ -85,3 +35,52 @@ headOver.prototype={
 }
 
 new headOver("#head .nav .mainNav .item","#head .nav .mainNav .subList");
+
+
+
+//3.点击导航栏跳转加载数据
+function JumpLoad(selector) {
+    this.ele=$(selector);
+    this.init();
+}
+JumpLoad.prototype={
+    constructor:JumpLoad,
+    init:function () {
+        var _this=this;
+        this.ele.each(function (index, item) {
+            // console.log(item);
+            $(item).on("click.jump",function () {
+                _this.responseClick.call(this);
+            });
+        })
+    },
+    responseClick:function () {
+        // console.log($(this).parent().attr("class"));
+
+        if($(this).parent().attr("class")=="item"){
+            var bigclass=$(this).text();
+            $.cookie("midclass","");
+            $.cookie("bigclass",bigclass);
+            location.href="detail.html";
+            return;
+        }
+        var midclass=$(this).text();
+        var nowEle=$(this);
+        while(nowEle.attr("class")!="item"){
+            nowEle=nowEle.parent();
+            // console.log(nowEle);
+        }
+        var bigclass=nowEle.children("a");
+        bigclass=bigclass.text();
+        $.cookie("bigclass",bigclass);
+        $.cookie("midclass",midclass);
+        location.href="detail.html";
+
+
+
+    }
+}
+
+new JumpLoad("#head .mainNav a");
+
+

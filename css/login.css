@@ -47,7 +47,6 @@ img{
 
 }
 .mutiPart .loginArea{
-    display: none;
 }
 .mutiPart h2{
     font-size: 28px;
@@ -110,8 +109,11 @@ img{
 
 .mutiPart .registerPart{
     width:470px;
-    margin:auto;
+    left:50%;
+    margin-left:-235px;
     padding-top:60px;
+    position: absolute;
+    display: none;
 }
 .mutiPart .registerPart h2{
     height:32px;
