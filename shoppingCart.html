@@ -209,11 +209,24 @@
         <div class="proSize">
             <span>尺寸</span>
             <div class="size">均码</div>
+            <div class="size">均码</div>
+            <div class="size">均码</div>
+            <div class="size">均码</div>
         </div>
         <div class="num">
             数量
-            <span>1</span>
+            <span class="nowNum">1</span>
             <i class="arrowDown"></i>
+
+            <div class="numList">
+                <p class="numItem chosed">1</p>
+                <p class="numItem">2</p>
+                <p class="numItem">3</p>
+                <p class="numItem">4</p>
+                <p class="numItem">5</p>
+                <p class="numItem">6</p>
+            </div>
+
         </div>
         <a href="##" class="add">加入购物车</a>
         <a href="##" class="treasure"><i></i>收藏商品</a>
@@ -342,8 +355,17 @@
 </div>
 
 </body>
-<script src="js/libs/jquery-3.3.1.min.js"></script>
-<script src="js/libs/jquery.cookie.js"></script>
-<script src="js/shoppingCart.js"></script>
-<script src="js/common.js"></script>
+<script src="js/libs/require.js"></script>
+
+<script>
+    require(["./js/libs/require.config"],function(){
+        require(["shopping"]);
+    })
+</script>
+
+<!--<script src="js/libs/jquery-3.3.1.min.js"></script>-->
+<!--<script src="js/libs/jquery.cookie.js"></script>-->
+<!--<script src="js/libs/common_toggleShow.js"></script>-->
+<!--<script src="js/libs/common.js"></script>-->
+<!--<script src="js/model/shoppingCart.js"></script>-->
 </html>

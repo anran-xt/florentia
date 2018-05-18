@@ -423,10 +423,21 @@
 
 
 </body>
-<script src="js/libs/jquery-3.3.1.min.js"></script>
-<script src="js/libs/jquery.cookie.js"></script>
-<script src="js/libs/common_assembly.js"></script>
-<script src="js/detail.js"></script>
-<script src="js/common.js"></script>
+
+<script src="js/libs/require.js"></script>
+
+<script>
+    require(["./js/libs/require.config"],function(){
+        require(["detail"]);
+    })
+</script>
+
+<!--<script src="js/libs/jquery-3.3.1.min.js"></script>-->
+<!--<script src="js/libs/jquery.cookie.js"></script>-->
+<!--<script src="js/lcommon_toggleShow.jsy.js"></script>-->
+<!--<script src="js/libs/common.js"></script>-->
+
+
+<!--<script src="js/model/detail.js"></script>-->
 
 </html>

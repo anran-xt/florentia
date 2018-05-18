@@ -36,7 +36,7 @@
     height:100%;
     top:0;
     left:0;
-    background: hsla(0,0%,100%,.8);
+    background: hsla(0,0%,100%,0.7);
 }
 #product .showList .showing .mask{
     background: none;
@@ -164,7 +164,6 @@
     margin-left:20px;
 }
 #product .productDes .proSize{
-    padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
 #product .productDes .proSize span{
@@ -184,6 +183,13 @@
     color:#999;
     border: 1px solid #999;
     cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+#product .productDes .proSize .chosed{
+    background: #d2003c;
+    border-color:#d2003c;
+    color:#FFF;
 }
 #product .productDes .num{
     font-size: 12px;
@@ -191,6 +197,8 @@
     color:#999;
     line-height: 1.5;
     border-bottom: 1px solid #ddd;
+    position: relative;
+    cursor: pointer;
 }
 #product .productDes .num span{
     margin-left: 20px;
@@ -203,7 +211,35 @@
     background: url("../img/icon-left.png") center no-repeat;
     float: right;
     transform: rotate(-90deg);
-    cursor: pointer;
+    position: relative;
+    left:-5px;
+}
+#product .productDes .num .numList{
+    position: absolute;
+    background: #fff;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    /*display: none;*/
+    box-sizing: border-box;
+    color:#000;
+    display: none;
+}
+#product .productDes .num .numList p:first-child{
+    border-top: 1px solid #ccc;
+}
+#product .productDes .num .numList .chosed{
+    background: #f4f4f4;
+}
+#product .productDes .num .numList p{
+    width: 100%;
+    height:24px;
+    line-height:24px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+#product .productDes .num .numList p:hover{
+    background: #f4f4f4;
 }
 
 #product .productDes .add{
@@ -220,7 +256,7 @@
 }
 #product .productDes .treasure{
     display: block;
-    width:310px;
+    width:308px;
     height:38px;
     line-height: 40px;
     text-align: center;
