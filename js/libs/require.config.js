@@ -19,6 +19,8 @@ requirejs.config({
         "headThing":"./js/libs/detail_headThing",
 
         "shoppingPrimary":"./js/libs/shopping_primary",
+        "shoppingSwiper":"./js/libs/shopping_swiper",
+        "shoppingLoadMsg":"./js/libs/shopping_loadMsg",
 
 
         "index":"./js/model/index",

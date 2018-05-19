@@ -53,9 +53,14 @@
     z-index: 1;
 }
 
-#product .swiperList{
+#product .swiperContainer{
     overflow: hidden;
     height:380px;
+    position: relative;
+}
+
+#product .swiperList{
+    position: absolute;
 }
 #product .swiperList .swiperItem{
     margin-bottom:20px;

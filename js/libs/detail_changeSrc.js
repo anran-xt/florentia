@@ -16,10 +16,10 @@ define(["jquery"],function ($) {
             var changeDir = event.data.change;
             // console.log(changeDir);
             if (changeDir == "next") {
-                var reg = /001.jpg/;
+                var reg = /001.jpg/i;
                 event.target.src = event.target.src.replace(reg, "002.jpg");
             } else if (changeDir == "prev") {
-                var reg = /002.jpg/;
+                var reg = /002.jpg/i;
                 event.target.src = event.target.src.replace(reg, "001.jpg");
             }
         }

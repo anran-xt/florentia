@@ -1,7 +1,8 @@
 /**
  * Created by lenovo1 on 2018/5/18.
  */
-define(["jquery","toggleShow"],function ($,toggleShow) {
+define(["jquery","toggleShow","shoppingLoadMsg"],function ($,toggleShow,loadMsg) {
+    new loadMsg();  //加载数据
     //2.基本的事件
     function PrimaryThing() {
         this.proSize = $("#product .productDes .proSize .size");
