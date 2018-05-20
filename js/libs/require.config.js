@@ -22,6 +22,10 @@ requirejs.config({
         "shoppingSwiper":"./js/libs/shopping_swiper",
         "shoppingLoadMsg":"./js/libs/shopping_loadMsg",
 
+        "changePage":"./js/libs/login_changePage",
+        "loginCheck":"./js/libs/login_check",
+
+
 
         "index":"./js/model/index",
         "detail":"./js/model/detail",

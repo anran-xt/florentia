@@ -35,9 +35,9 @@
             <span class="tips">已有账号? <a href="##">点击登录</a></span>
         </h2>
         <label for="uName">* 用户名</label>
-        <input type="text" id="unName" placeholder="请设置你的用户名">
+        <input type="text" id="unName" placeholder="请设置你的用户名" autocomplete="off">
         <label for="uPwd">* 密码</label>
-        <input type="password" id="unPwd" placeholder="请设置登录密码">
+        <input type="password" id="unPwd" placeholder="请设置登录密码" autocomplete="off">
 
         <p>
             <span class="checkbox"></span>
@@ -50,13 +50,18 @@
         </p>
 
 
-        <div class="loginBtn">注册</div>
+        <div class="registerBtn">注册</div>
 
 
     </div>
 
 </div>
 </body>
-<script src="js/libs/jquery-3.3.1.min.js"></script>
-<script src="js/model/login.js"></script>
+<script src="./js/libs/require.js"></script>
+<script>
+    require(["./js/libs/require.config"],function () {
+        require(["login"]);
+    })
+</script>
+
 </html>

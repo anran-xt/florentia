@@ -2,7 +2,7 @@
  * Created by lenovo1 on 2018/5/18.
  */
 define(["jquery","toggleShow","shoppingLoadMsg"],function ($,toggleShow,loadMsg) {
-    new loadMsg();  //加载数据
+    // new loadMsg();  //加载数据
     //2.基本的事件
     function PrimaryThing() {
         this.proSize = $("#product .productDes .proSize .size");
@@ -10,7 +10,6 @@ define(["jquery","toggleShow","shoppingLoadMsg"],function ($,toggleShow,loadMsg)
         this.numList = $("#product .productDes .num .numList .numItem");
         this.init();
     }
-
     PrimaryThing.prototype = {
         constructor: PrimaryThing,
         init: function () {

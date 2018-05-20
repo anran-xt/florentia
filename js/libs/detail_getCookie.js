@@ -16,7 +16,6 @@ define(["jquery","jqueryCookie","loadData"],function ($,cookie,loadData) {
         var contanier="#gallery .listWrap";
         new loadData(opt,url,contanier);
     }
-
     getCookie();
 
 

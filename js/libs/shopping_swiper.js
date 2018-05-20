@@ -3,7 +3,7 @@
  */
 define(["jquery","shoppingLoadMsg"], function ($,loadMsg) {
     //加载数据
-    new loadMsg();
+    // new loadMsg();
 
     function ProductSwiper(list, turnWrap, swiperWrap) {
         this.list = $(list);

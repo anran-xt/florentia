@@ -7,6 +7,7 @@
  */
 @$uname=$_REQUEST['uname'];
 @$upwd=$_REQUEST['upwd'];
+@$type=$_REQUEST['type'];
 
 if($uname==""||$uname==null||$upwd==""||$upwd==null){
     die("信息不足");
@@ -19,7 +20,20 @@ $res=mysqli_query($conn,$sql);
 $res=mysqli_fetch_row($res);
 if($res!=0){
 //    登录成功
-
+    if($type=="login"){
+        echo("登录成功");
+        return;
+    }else if($type=="register"){
+        die("该用户名已存在");
+    }
 }else{
-    die("用户名或密码错误");
+    if($type=="login"){
+        die("用户名或密码错误");
+    }else if($type=="register"){
+        $sql="insert into usertable VALUES(default,'$uname','$upwd',default)";
+        $res=mysqli_query($conn,$sql);
+        if($res){
+            echo("注册成功");
+        }
+    }
 }

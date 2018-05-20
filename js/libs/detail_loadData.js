@@ -10,13 +10,13 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
         this.url = url;
         this.wrap = $(wrap);
 
-        this.init()
+        this.init();
     }
     loadData.prototype = {
         constructor: loadData,
         init: function () {
             this.loading()
-                .then(function (res) {
+                .then(function (res){
                     this.rendering(res);
 
                 }.bind(this))
@@ -33,7 +33,8 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
             return $.ajax(parameter);
         },
         rendering: function (res) {
-            // console.log(JSON.parse(res));
+            console.log(JSON.parse(res));
+            document.goodsList=JSON.parse(res).goodsList;
             var resArr = JSON.parse(res);   //拿到的全部数据
             var goodsList = resArr.goodsList; //拿出商品信息数据
             var libsMsg = resArr.libsmsg;     //拿出附加信息数据
@@ -59,11 +60,14 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
                     ${this.judgeSize(item.gsizelist)}
                 </div>
                 <p class="goodsPrice">
-                    <span class="nowPrice">￥&nbsp;${item.gnowprice}</span>
-                    <span class="oldPrice">￥&nbsp;${item.goldprice}</span>
+                    <span class="nowPrice">￥&nbsp;<span>${item.gnowprice}</span></span>
+                    <span class="oldPrice">￥&nbsp;<span>${item.goldprice}</span></span>
                     <span class="discount">${parseInt((item.gnowprice / item.goldprice) * 10)}折</span>
                 </p>
-                <i class="hidden" hidden>${item.gid}</i>
+                <i class="gsrcnum" hidden>${item.gsrcnum}</i>
+                
+                <i class="gcolor" hidden>${item.gcolor}</i>
+                
             </div>`;
 
                 strs += str;
