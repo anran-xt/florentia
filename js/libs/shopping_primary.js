@@ -49,7 +49,9 @@ define(["jquery","toggleShow","shoppingLoadMsg","magnifier"],function ($,toggleS
         this.topMax=$(this.wrapMask).height()-$(this.wrap).width();
 
         this.ratioX=$(this.wrap).width()/$(this.wrapMask).width();
-        this.ratioY=$(this.wrap).width()/$(this.wrapMask).height();
+        this.ratioY=$(this.wrap).height()/$(this.wrapMask).height();
+
+        console.log($(this.wrap).width()/this.ratioX);
 
 
         this.init();

@@ -1,7 +1,6 @@
 /**
  * Created by lenovo1 on 2018/5/21.
  */
-;
 define(["jquery","jqueryCookie"],function ($, cookie) {
     function Paging() {
         this.pageBtn=$("#paging .pageBtn:not(.noMore)");
@@ -29,7 +28,6 @@ define(["jquery","jqueryCookie"],function ($, cookie) {
             }
         },
         numChange:function (event) {
-            // console.log($(event.target).html());
             $.cookie("nowPage",$(event.target).html());
             location.reload();
 
