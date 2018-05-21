@@ -8,9 +8,12 @@ define(["jquery","jqueryCookie"],function () {
         this.swiperList = this.product.find(".swiperList");
         this.productDes = this.product.find(".productDes");
 
+        this.layoutCenter = $("#layoutCenter");
+
 
         var str=$.cookie("data");
-        console.log(JSON.parse(str));
+        // console.log(JSON.parse(str));
+        if(!str)  return;
         this.data=JSON.parse(str);
 
         // this.data = {
@@ -31,11 +34,10 @@ define(["jquery","jqueryCookie"],function () {
             this.loadList(this.data);
         },
         loadList:function (data) {
+            console.log(data);
             //1.加载showList
             var showListStr="";
-
             var reg=/\.(jpg|png)/i;
-            console.log(data.goodUrl.slice(0,data.goodUrl.indexOf(reg)-4));
             var imgSrc=data.goodUrl.slice(0,data.goodUrl.indexOf(reg)-4);
             //1.在listShow处加载两倍数量图片
             if(data.goodImgNum<4){
@@ -43,14 +45,12 @@ define(["jquery","jqueryCookie"],function () {
             }else{
                 var timesNum=2;
             }
-            console.log(timesNum);
             for(var i=0;i<timesNum*data.goodImgNum;i++){
                 showListStr+=`<div class="showItem${this.judgeShow(i)}">
                         <img src="${imgSrc}${(i)%data.goodImgNum+1}.jpg" alt="">
                         <div class="mask"></div>
                     </div>`;
             }
-            // console.log(showListStr);
             $(this.showList).html(showListStr);
 
             //2.加载swiperList图片
@@ -73,6 +73,17 @@ define(["jquery","jqueryCookie"],function () {
 
             // this.getSize(data.goodSizeList);
             $(this.productDes).find(".proSize").html(this.getSize(data.goodSizeList));
+
+            //4.加载layoutCenter图片
+            var str="";
+            for(var i=0;i<data.goodImgNum;i++){
+                str+=`<img src="${imgSrc}${i+1}.jpg" alt="" class="middleImg">`;
+            }
+            // console.log(str);
+            $(this.layoutCenter).html(str);
+
+
+
 
         },
         judgeShow:function (i) {

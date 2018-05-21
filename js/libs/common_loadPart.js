@@ -1,7 +1,8 @@
 /**
  * Created by lenovo1 on 2018/5/18.
  */
-define(["jquery","headMove","headClick"],function ($,headMove,headClick) {
+;
+define(["jquery","headMove","headClick","getUser"],function ($,headMove,headClick,getUser) {
     $.ajax( {
         url: "index.html", //这里是静态页的地址
         type: "GET", //静态页用get方法，否则服务器会抛出405错误
@@ -13,6 +14,7 @@ define(["jquery","headMove","headClick"],function ($,headMove,headClick) {
 
             new headMove("#head .nav .mainNav .item", "#head .nav .mainNav .subList");
             new headClick("#head .mainNav a");
+            new getUser();
         }
     });
 })

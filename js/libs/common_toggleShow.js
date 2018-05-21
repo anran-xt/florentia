@@ -1,6 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/17.
  */
+;
 //1.某个事件触发显示或隐藏某些元素  ==>  公用组件
 define(["jquery"],function () {
     function toggleShow(type,originEle,targetEle,callbale) {

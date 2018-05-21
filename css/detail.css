@@ -204,7 +204,12 @@
     margin:0 15px;
     cursor: pointer;
 }
-#paging .prevPage{
+#paging .pageBtn:hover:not(.noMore){
+    border-color:#737373;
+    color:#737373;
+}
+
+#paging .noMore{
     color:#ccc;
     border-color:#ccc;
 }
@@ -218,6 +223,10 @@
     border-radius: 2px;
     cursor: pointer;
 }
+#paging .pageNum:hover:not(.nowPage){
+    border-color:#737373;
+    color:#737373;
+}
 #paging .nowPage{
     background: #000;
     color:#fff;
@@ -228,6 +237,7 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    padding-top:50px;
 }
 #guess .guessTitleWrap{
     position: relative;

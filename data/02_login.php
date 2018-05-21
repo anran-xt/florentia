@@ -21,14 +21,15 @@ $res=mysqli_fetch_row($res);
 if($res!=0){
 //    登录成功
     if($type=="login"){
-        echo("登录成功");
+        echo(1);
         return;
     }else if($type=="register"){
         die("该用户名已存在");
     }
 }else{
     if($type=="login"){
-        die("用户名或密码错误");
+        echo(0);
+        return;
     }else if($type=="register"){
         $sql="insert into usertable VALUES(default,'$uname','$upwd',default)";
         $res=mysqli_query($conn,$sql);

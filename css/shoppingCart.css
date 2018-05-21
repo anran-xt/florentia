@@ -96,7 +96,38 @@
     top:0;
     /*background: #0ff;*/
     max-height:450px;
+    cursor: crosshair;
+    z-index: 2;
+
 }
+#product .turnWrap .wrap{
+    position: absolute;
+    width:150px;
+    height:150px;
+    background: rgba(255,170,37,0.5);
+    top:0;
+    left:0;
+    /*display: none;*/
+    z-index: 1;
+}
+#product .turnWrap .wrapMask{
+    width:100%;
+    height:100%;
+    /*background: ;*/
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+
+}
+#product .turnWrap .bigger{
+    width:300px;
+    height:300px;
+    position: absolute;
+    left:100%;
+    background-repeat: no-repeat;
+    top:75px;
+}
+
 #product .turnWrap .turn{
     width:50px;
     height:50px;
@@ -106,6 +137,7 @@
     margin-top:-25px;
     cursor: pointer;
     opacity: 0.6;
+    z-index: 3;
 }
 #product .turnWrap .turnLeft{
     left:0;
@@ -315,7 +347,7 @@
     font-size: 0;
 }
 #layoutCenter .largeImg{
-    width:100%;
+    /*width:100%;*/
 }
 #layoutCenter .middleImg{
     margin:2%;

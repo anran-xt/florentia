@@ -1,3 +1,4 @@
+;
 requirejs.config({
     paths:{
         "jquery":"./js/libs/jquery-3.3.1",
@@ -7,6 +8,7 @@ requirejs.config({
         "headClick":"./js/libs/common_headClick",
         "toggleShow":"./js/libs/common_toggleShow",
         "loadPart":"./js/libs/common_loadPart",
+        "getUser":"./js/libs/common_getUserCookie",
 
 
         "scrollTrigger":"./js/libs/index_scrollTrigger",
@@ -16,11 +18,13 @@ requirejs.config({
         "loadData":"./js/libs/detail_loadData",
         "changeSrc":"./js/libs/detail_changeSrc",
         "getCookie":"./js/libs/detail_getCookie",
-        "headThing":"./js/libs/detail_headThing",
+        "paging":"./js/libs/detail_paging",
+
 
         "shoppingPrimary":"./js/libs/shopping_primary",
         "shoppingSwiper":"./js/libs/shopping_swiper",
         "shoppingLoadMsg":"./js/libs/shopping_loadMsg",
+        "magnifier":"./js/libs/shopping_magnifier",
 
         "changePage":"./js/libs/login_changePage",
         "loginCheck":"./js/libs/login_check",

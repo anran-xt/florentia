@@ -1,7 +1,8 @@
 /**
  * Created by lenovo1 on 2018/5/20.
  */
-define(["jquery"], function ($) {
+;
+define(["jquery","jqueryCookie"], function ($) {
     function loginRegisterCheck() {
         this.loginBtn = $(".loginArea .loginBtn");
         this.registerBtn=$(".registerPart .registerBtn");
@@ -43,8 +44,17 @@ define(["jquery"], function ($) {
                 data: opt
             })
                 .then(function (res) {
-                    alert(res);
-                })
+                    // console.log(res!='0');
+                    if(this.type=="login"){
+                        if(res!='0'){
+                            $.cookie("user",$(this.uName).val());
+                            location.href="index.html";
+                        }else{
+                            alert("用户名或密码错误");
+                        }
+                    }
+                    // alert(res);
+                }.bind(this))
         }
     }
 

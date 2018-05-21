@@ -1,6 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/18.
  */
+;
 define(["jquery"], function () {
     // //3.更多品牌点击模块
     function MoreBrands(parent_selector, btn_selector) {

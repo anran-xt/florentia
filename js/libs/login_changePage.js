@@ -1,6 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/20.
  */
+;
 define(["jquery"],function (changePage) {
     function ChangePage(btnSelector,hideSelector,showSelector){
         this.btnEle=$(btnSelector);

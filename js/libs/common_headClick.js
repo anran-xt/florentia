@@ -1,6 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/18.
  */
+;
 define(["jquery","jqueryCookie"],function () {
     //3.点击导航栏跳转加载数据模块
     function JumpLoad(selector) {
@@ -26,6 +27,7 @@ define(["jquery","jqueryCookie"],function () {
                 var bigclass=$(this).text();
                 $.cookie("midclass","");
                 $.cookie("bigclass",bigclass);
+                $.cookie("nowPage",1);
                 location.href="detail.html";
                 return;
             }
@@ -38,6 +40,7 @@ define(["jquery","jqueryCookie"],function () {
             bigclass=bigclass.text();
             $.cookie("bigclass",bigclass);
             $.cookie("midclass",midclass);
+            $.cookie("nowPage",1);
             location.href="detail.html";
         }
     }

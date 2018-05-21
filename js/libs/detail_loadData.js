@@ -1,12 +1,14 @@
 /**
  * Created by lenovo1 on 2018/5/18.
  */
-define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
+;
+define(["jquery","jqueryCookie","toggleShow","paging"],function ($,cookie,toggleShow,Paging) {
     function loadData(classObj, url, wrap) {
         // console.log(classObj);
         if (!classObj.bigclass || !url || !wrap) return;
         this.gfirstclass = classObj.bigclass;
         if (classObj.midclass) this.gsecondclass = classObj.midclass;
+        this.nowPage=classObj.nowPage;
         this.url = url;
         this.wrap = $(wrap);
 
@@ -17,6 +19,7 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
         init: function () {
             this.loading()
                 .then(function (res){
+                    console.log(JSON.parse(res));
                     this.rendering(res);
 
                 }.bind(this))
@@ -24,16 +27,17 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
         loading: function () {
             var parameter = {
                 url: this.url,
-                type: "post",
-                data: {gfirstclass: this.gfirstclass}
+                type: "get",
+                data: {gfirstclass: this.gfirstclass,nowPage:this.nowPage}
+
             };
             if (this.gsecondclass) {
                 parameter.data.gsecondclass = this.gsecondclass;
             }
+            console.log(parameter.data);
             return $.ajax(parameter);
         },
         rendering: function (res) {
-            console.log(JSON.parse(res));
             document.goodsList=JSON.parse(res).goodsList;
             var resArr = JSON.parse(res);   //拿到的全部数据
             var goodsList = resArr.goodsList; //拿出商品信息数据
@@ -75,12 +79,20 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
             this.wrap.html(this.wrap.html() + strs);
         },
         renderLibs: function (libsMsg) {
-            // console.log(libsMsg);
+            console.log(libsMsg);
 
             var filterClassify = $("#productFilter .filterClassify ");
             var filterDetail = $("#productFilter .filterDetail ");
 
-
+            //分页
+            var paging=$("#paging");
+            if(libsMsg.goodsCount<12){
+                paging.remove();
+            }else{
+                var pageStr=this.concatPage(libsMsg.goodsCount,libsMsg.nowPage);
+                $(paging).html(pageStr);
+                new Paging();
+            }
             //1.filterClassify
             //1.1 一级分类
             var str = "";
@@ -190,7 +202,30 @@ define(["jquery","jqueryCookie","toggleShow"],function ($,cookie,toggleShow) {
                 str += `<span>更多</span>`;
             }
             return str;
+        },
+        concatPage:function (count,nowPage) {
+            var str="";
+            if(nowPage==1){
+                str+=`<span class="prevPage pageBtn noMore">上一页</span>`
+            }else{
+                str+=`<span class="prevPage pageBtn">上一页</span>`
+            }
+            for(var i=0;i<Math.ceil(count/12);i++){
+                if(i+1==nowPage){
+                    var className="nowPage pageNum";
+                }else{
+                    var className="pageNum";
+                }
+                str+=`<span class="${className}">${i+1}</span>`
+            }
+            if(nowPage==Math.ceil(count/12)){
+                str+=`<span class="nextPage pageBtn noMore">下一页</span>`;
+            }else{
+                str+=`<span class="nextPage pageBtn">下一页</span>`;
+            }
+            return str;
         }
+
     }
 
     return loadData;

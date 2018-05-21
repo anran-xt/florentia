@@ -1,6 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/19.
  */
+;
 define(["jquery","shoppingLoadMsg"], function ($,loadMsg) {
     //加载数据
     // new loadMsg();

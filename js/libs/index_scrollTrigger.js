@@ -2,6 +2,7 @@
  * Created by lenovo1 on 2018/5/18.
  */
 //scrollTrigger模块
+;
 define(["jquery"],function () {
     function ScrollTrigger() {
         this.changeObj = {

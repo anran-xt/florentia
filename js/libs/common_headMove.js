@@ -1,6 +1,7 @@
 /**
  * Created by lenovo1 on 2018/5/18.
  */
+;
 define(["jquery"], function () {
     function headOver(itemList, subSelector) {
         this.itemList = $(itemList);
