@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkout</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+<div id="headWrap"></div>
+<div id="goodMain">
+    <div class="leftArea">
+        <!--<div class="brand">-->
+            <!--<div class="brandTitle">VERSACE</div>-->
+            <!--<div class="item">-->
+                <!--<div class="img"><img src="img/list/brooks-brothers_BB100098529I1_001.jpg" alt=""></div>-->
+                <!--<div class="info">-->
+                    <!--<p class="name"> 范思哲橘黄色男士钱包</p>-->
+                    <!--<p class="option">均码</p>-->
+                    <!--<p class="money">-->
+                        <!--￥1489.00-->
+                        <!--<span class="moneyOld">￥2530.00</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="numpicker">-->
+                    <!--<span class="pickerMinus picker">-</span>-->
+                    <!--<span class="pickerSum">1</span>-->
+                    <!--<span class="pickerPlus picker">+</span>-->
+                <!--</div>-->
+                <!--<div class="extra">-->
+                    <!--<div class="action">-->
+                        <!--<span class="">移至收藏夹</span>-->
+                        <!--<i></i>-->
+                        <!--<span class="deleteItem">删除</span>-->
+                    <!--</div>-->
+                    <!--<div class="total">￥1489.00</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="brand">-->
+            <!--<div class="brandTitle">VERSACE</div>-->
+            <!--<div class="item">-->
+                <!--<div class="img"><img src="img/list/brooks-brothers_BB100098529I1_001.jpg" alt=""></div>-->
+                <!--<div class="info">-->
+                    <!--<p class="name"> 范思哲橘黄色男士钱包</p>-->
+                    <!--<p class="option">均码</p>-->
+                    <!--<p class="money">-->
+                        <!--￥1489.00-->
+                        <!--<span class="moneyOld">￥2530.00</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="numpicker">-->
+                    <!--<span class="pickerMinus picker">-</span>-->
+                    <!--<span class="pickerSum">1</span>-->
+                    <!--<span class="pickerPlus picker">+</span>-->
+                <!--</div>-->
+                <!--<div class="extra">-->
+                    <!--<div class="action">-->
+                        <!--<span class="">移至收藏夹</span>-->
+                        <!--<i></i>-->
+                        <!--<span class="deleteItem">删除</span>-->
+                    <!--</div>-->
+                    <!--<div class="total">￥1489.00</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    </div>
+    <div class="rightArea">
+        <p class="title">购物袋总计</p>
+        <p class="goodNum infoText">商品数 <span>2</span></p>
+        <p class="subTotal infoText">小计 <span>￥5230.00</span></p>
+        <p class="freight infoText">运费 <span>￥0.00</span></p>
+        <p class="total">
+            总价
+            <span class="totalMoney">
+                <span class="nowTotal">￥5230.00</span><br>
+                <span class="saveMoney">(已省￥2380.00)</span>
+            </span>
+        </p>
+        <p class="settle">结算</p>
+        <p class="return other">退货政策 <i>+</i></p>
+        <p class="distribu other">配送说明 <i>+</i></p>
+        <p class="payment other">支持的支付方式 <i>+</i></p>
+
+    </div>
+</div>
+
+<div id="footerWrap"></div>
+
+
+</body>
+<script src="js/libs/require.js"></script>
+<script>
+
+
+    require(["./js/libs/require.config"],function () {
+        require(["checkout"]);
+    })
+</script>
+</html>

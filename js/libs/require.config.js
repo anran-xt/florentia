@@ -29,12 +29,16 @@ requirejs.config({
         "changePage":"./js/libs/login_changePage",
         "loginCheck":"./js/libs/login_check",
 
+        "checkoutData":"./js/libs/checkout_loadData",
+        "checkoutPrimary":"./js/libs/checkout_primary",
+
 
 
         "index":"./js/model/index",
         "detail":"./js/model/detail",
         "shopping":"./js/model/shoppingCart",
         "login":"./js/model/login",
+        "checkout":"./js/model/checkout"
 
 
     }

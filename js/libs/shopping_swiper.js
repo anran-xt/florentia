@@ -53,8 +53,11 @@ define(["jquery","shoppingLoadMsg"], function ($,loadMsg) {
         changeIndex: function (event) {
             this.itemWidth = this.items.eq(0).width();
 
+            var beishu=2;
+
             if (event.data.turn == "right") {
-                if (this.firstIndex == parseInt(this.items.length / 2)) {
+
+                if (this.firstIndex == parseInt(this.items.length / beishu)) {
                     // console.log("change");
                     this.list.css("left", 0);
                     this.firstIndex = 0;
@@ -69,14 +72,15 @@ define(["jquery","shoppingLoadMsg"], function ($,loadMsg) {
 
             } else if (event.data.turn == "left") {
                 if (this.firstIndex == 0) {
-                    this.list.css("left", -this.itemWidth * this.items.length/2);
-                    this.firstIndex = this.items.length/2;
+                    this.list.css("left", -this.itemWidth * this.items.length/beishu);
+                    this.firstIndex = this.items.length/beishu;
                 }
                 this.firstIndex--;
                 this.showIndex = this.firstIndex + 1;
                 for (var i = 0; i < this.items.length; i++) {
                     this.items[i].className = "showItem";
                 }
+                console.log(this.showIndex);
                 this.items[this.showIndex].className = "showItem showing";
             } else if (event.data.turn == "toIndex") {
                 while (event.target.className != "swiperItem") {

@@ -5,7 +5,7 @@ define(["jquery","jqueryCookie"],function ($, cookie) {
     function Paging() {
         this.pageBtn=$("#paging .pageBtn:not(.noMore)");
         this.pageNum=$("#paging .pageNum:not(.nowPage)");
-        console.log(this.pageBtn,this.pageNum);
+        // console.log(this.pageBtn,this.pageNum);
 
         this.init();
     }

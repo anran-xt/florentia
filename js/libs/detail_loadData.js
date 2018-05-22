@@ -19,7 +19,7 @@ define(["jquery","jqueryCookie","toggleShow","paging"],function ($,cookie,toggle
         init: function () {
             this.loading()
                 .then(function (res){
-                    console.log(JSON.parse(res));
+                    // console.log(JSON.parse(res));
                     this.rendering(res);
 
                 }.bind(this))
@@ -29,12 +29,11 @@ define(["jquery","jqueryCookie","toggleShow","paging"],function ($,cookie,toggle
                 url: this.url,
                 type: "get",
                 data: {gfirstclass: this.gfirstclass,nowPage:this.nowPage}
-
             };
             if (this.gsecondclass) {
                 parameter.data.gsecondclass = this.gsecondclass;
             }
-            console.log(parameter.data);
+            // console.log(parameter.data);
             return $.ajax(parameter);
         },
         rendering: function (res) {
@@ -53,6 +52,7 @@ define(["jquery","jqueryCookie","toggleShow","paging"],function ($,cookie,toggle
         renderGoods: function (goodsList) {
             var strs = "";
             goodsList.forEach(function (item) {
+                // console.log(item);
                 this.judgeSize(item.gsizelist);
                 var str = `<div class="item">
                 <a href="##"><img src=${item.gsrc} alt="img"></a>
@@ -71,6 +71,7 @@ define(["jquery","jqueryCookie","toggleShow","paging"],function ($,cookie,toggle
                 <i class="gsrcnum" hidden>${item.gsrcnum}</i>
                 
                 <i class="gcolor" hidden>${item.gcolor}</i>
+                <i class="goodid" hidden>${item.gid}</i>
                 
             </div>`;
 
@@ -79,7 +80,7 @@ define(["jquery","jqueryCookie","toggleShow","paging"],function ($,cookie,toggle
             this.wrap.html(this.wrap.html() + strs);
         },
         renderLibs: function (libsMsg) {
-            console.log(libsMsg);
+            // console.log(libsMsg);
 
             var filterClassify = $("#productFilter .filterClassify ");
             var filterDetail = $("#productFilter .filterDetail ");

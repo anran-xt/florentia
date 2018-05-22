@@ -107,7 +107,7 @@
     background: rgba(255,170,37,0.5);
     top:0;
     left:0;
-    /*display: none;*/
+    display: none;
     z-index: 1;
 }
 #product .turnWrap .wrapMask{
@@ -126,6 +126,7 @@
     left:100%;
     background-repeat: no-repeat;
     top:75px;
+    display: none;
 }
 
 #product .turnWrap .turn{
@@ -261,6 +262,7 @@
     box-sizing: border-box;
     color:#000;
     display: none;
+    z-index: 1;
 }
 #product .productDes .num .numList p:first-child{
     border-top: 1px solid #ccc;
@@ -288,8 +290,24 @@
     background: #000;
     border-radius: 2px;
     color:#fff;
-    font-size: 14px;
     margin-bottom: 10px;
+    position: relative;
+    font-size: 0;
+}
+#product .productDes .add span,#product .productDes .add a{
+    font-size: 14px;
+    height:40px;
+    float: left;
+    cursor: pointer;
+    overflow: hidden;
+    color:#fff;
+}
+#product .productDes .add .addNow{
+    width: 100%;
+}
+#product .productDes .add .settlement{
+    width: 0;
+    background: #C92F49;
 }
 #product .productDes .treasure{
     display: block;
@@ -339,6 +357,26 @@
     font-size: 12px;
     margin-top: 10px;
 }
+#product .productDes .addSucc{
+    width:150px;
+    height:150px;
+    line-height: 150px;
+    text-align: center;
+    border-radius: 15px;
+    background: #bbb;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left: -75px;
+    margin-top: -75px;
+    z-index: 9;
+    font-size: 14px;
+    color:#fff;
+    display: none;
+}
+
+
+
 
 
 #layoutCenter{

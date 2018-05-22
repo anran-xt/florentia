@@ -125,6 +125,17 @@ h1,h2,h3,h4,h5{
     line-height: 1;
     margin-left:20px;
 }
+#head .nav .rightNav .cart{
+    font-size: 14px;
+    color:#C72244;
+}
+#head .nav .rightNav .cart i{
+    font-size: 14px;
+    color:#C72244;
+    font-style: normal;
+    margin-left: 5px;
+
+}
 #head .nav .rightNav li a{
     display: inline-block;
     width:14px;

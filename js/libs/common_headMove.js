@@ -33,6 +33,4 @@ define(["jquery"], function () {
     }
 
     return headOver;
-    // ("#head .nav .mainNav .item", "#head .nav .mainNav .subList")
-
 })

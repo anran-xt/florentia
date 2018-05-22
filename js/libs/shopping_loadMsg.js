@@ -34,7 +34,7 @@ define(["jquery","jqueryCookie"],function () {
             this.loadList(this.data);
         },
         loadList:function (data) {
-            console.log(data);
+            // console.log(data);
             //1.加载showList
             var showListStr="";
             var reg=/\.(jpg|png)/i;
@@ -43,8 +43,9 @@ define(["jquery","jqueryCookie"],function () {
             if(data.goodImgNum<4){
                 var timesNum=6-data.goodImgNum;
             }else{
-                var timesNum=2;
+
             }
+            var timesNum=2;
             for(var i=0;i<timesNum*data.goodImgNum;i++){
                 showListStr+=`<div class="showItem${this.judgeShow(i)}">
                         <img src="${imgSrc}${(i)%data.goodImgNum+1}.jpg" alt="">
@@ -60,18 +61,18 @@ define(["jquery","jqueryCookie"],function () {
                                     <img src="${imgSrc}${i+1}.jpg" alt="">
                                 </div>`
             }
-            // console.log(swiperListStr);
             $(this.swiperList).html(swiperListStr);
 
             // 3.加载productDes
+            // console.log(data);
             $(this.productDes).find("h2").html(data.goodName);
+            $(this.productDes).find("h2").attr("goodid",data.goodid);
             $(this.productDes).find("h3").html(data.goodBrand);
-            $(this.productDes).find(".price .nowPrice").html(`￥&nbsp;${data.goodNowPrice}`);
-            $(this.productDes).find(".price .oldPrice").html(`￥&nbsp;${data.goodOldPrice}`);
+            $(this.productDes).find(".price .nowPrice").html(`￥&nbsp;<span>${data.goodNowPrice}</span>`);
+            $(this.productDes).find(".price .oldPrice").html(`￥&nbsp;<span>${data.goodOldPrice}</span>`);
             $(this.productDes).find(".price .discount").html(`（${Math.round((data.goodNowPrice/data.goodOldPrice)*10)}折）`);
             $(this.productDes).find(".color span").html(data.goodColor);
 
-            // this.getSize(data.goodSizeList);
             $(this.productDes).find(".proSize").html(this.getSize(data.goodSizeList));
 
             //4.加载layoutCenter图片
@@ -79,7 +80,6 @@ define(["jquery","jqueryCookie"],function () {
             for(var i=0;i<data.goodImgNum;i++){
                 str+=`<img src="${imgSrc}${i+1}.jpg" alt="" class="middleImg">`;
             }
-            // console.log(str);
             $(this.layoutCenter).html(str);
 
 

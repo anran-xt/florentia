@@ -27,10 +27,9 @@ define(["jquery","jqueryCookie"],function ($) {
             }
         },
         hrefChange:function (event) {
-            // console.log($(event.target).parents(".item"));
             var parentEleIndex=$(event.target).parents(".item").index();
             var goodsMsg=document.goodsList[parentEleIndex];
-            console.log(goodsMsg);
+            // console.log(goodsMsg);
             var  goodUrl=goodsMsg.gsrc;
             var  goodName=goodsMsg.gname;
             var  goodBrand=goodsMsg.gbrand;
@@ -39,6 +38,7 @@ define(["jquery","jqueryCookie"],function ($) {
             var  goodNowPrice=goodsMsg.gnowprice;
             var  goodOldPrice=goodsMsg.goldprice;
             var goodSizeList=goodsMsg.gsizelist;
+            var goodid=goodsMsg.gid;
 
             var data={};
             data.goodUrl=goodUrl;
@@ -49,16 +49,12 @@ define(["jquery","jqueryCookie"],function ($) {
             data.goodNowPrice=parseInt(goodNowPrice);
             data.goodOldPrice=parseInt(goodOldPrice);
             data.goodSizeList=goodSizeList;
-            console.log(data);
-
-
+            data.goodid=goodid;
+            // console.log(data);
 
             $.cookie("data",JSON.stringify(data));
 
             location.href="shoppingCart.html";
-
-
-
 
 
 

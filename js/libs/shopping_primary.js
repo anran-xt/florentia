@@ -2,7 +2,7 @@
  * Created by lenovo1 on 2018/5/18.
  */
 ;
-define(["jquery","toggleShow","shoppingLoadMsg","magnifier"],function ($,toggleShow,loadMsg) {
+define(["jquery","jqueryCookie","toggleShow","loadPart","shoppingLoadMsg"],function ($,cookie,toggleShow) {
     // new loadMsg();  //加载数据
     //1.基本的事件
     function PrimaryThing() {
@@ -36,9 +36,6 @@ define(["jquery","toggleShow","shoppingLoadMsg","magnifier"],function ($,toggleS
     new PrimaryThing();
 
     //2.放大镜事件
-
-
-
     function Manifier() {
         this.wrapMask=$("#product .turnWrap .wrapMask");
         this.wrap=$("#product .turnWrap .wrap");
@@ -51,7 +48,7 @@ define(["jquery","toggleShow","shoppingLoadMsg","magnifier"],function ($,toggleS
         this.ratioX=$(this.wrap).width()/$(this.wrapMask).width();
         this.ratioY=$(this.wrap).height()/$(this.wrapMask).height();
 
-        console.log($(this.wrap).width()/this.ratioX);
+        // console.log($(this.wrap).width()/this.ratioX);
 
 
         this.init();
@@ -118,5 +115,154 @@ define(["jquery","toggleShow","shoppingLoadMsg","magnifier"],function ($,toggleS
     }
     //放大镜
     new Manifier();
+
+    
+    //3.加入购物车
+    function AddShoppingCar() {
+        this.addSucc=$("#product .productDes .addSucc");
+        this.addArea=$("#product .productDes .add");
+        this.sizeList=$("#product .productDes .proSize");
+        this.goodNum=$("#product .productDes .num");
+        this.goodId=$("#product .productDes h2");
+        this.init();
+    }
+    AddShoppingCar.prototype={
+        constructor:AddShoppingCar,
+        init:function () {
+            $(this.addArea).find(".addNow").on("click",$.proxy(this.add,this));
+        },
+        add:function () {
+            this.getGood();
+        },
+        getGood:function () {
+            var chosedSize=$(this.sizeList).find(".chosed");
+            if(chosedSize.length!=0){
+                var goodId=$(this.goodId).attr("goodid");
+                var goodSize=$(chosedSize).text();
+                var goodNum=$(this.goodNum).find(".nowNum").text();
+                var gbrand=$("#product .productDes h3").html();
+                var gname=$("#product .productDes h2").html();
+                var gnowprice=$("#product .productDes .price .nowPrice span").html();
+                var goldprice=$("#product .productDes .price .oldPrice span").html();
+                var gsrc=$("#product .showList:first-of-type .showItem img").attr("src");
+
+
+                var shoppingCart={
+                    goodId:goodId,
+                    goodSize:goodSize,
+                    goodNum:goodNum,
+                    goodDetail:{
+                        gbrand:gbrand,
+                        gname:gname,
+                        gnowprice:gnowprice,
+                        goldprice:goldprice,
+                        gsrc:gsrc
+                    }
+                };
+                // console.log(shoppingCart);
+
+                var shoppingMsg=$.cookie("shoppingMsg");
+
+                // console.log(shoppingMsg);
+                if(shoppingMsg){
+                    shoppingMsg=JSON.parse(shoppingMsg);
+
+                    for(var i=0;i<shoppingMsg.length;i++){
+                        if(shoppingMsg[i].goodId==shoppingCart.goodId){
+                            this.addSucc.html("早先已加入购物车");
+                            $(this.addSucc).fadeIn("fast",function () {
+                                setTimeout(function () {
+                                    $(this.addSucc).fadeOut("fast");
+                                }.bind(this),1000)
+                            }.bind(this));
+                            //显示立即结算
+                            this.showSettle();
+                            return;
+                        }
+                    }
+                    shoppingMsg.push(shoppingCart);
+                    shoppingMsg=JSON.stringify(shoppingMsg);
+
+                    this.addSucc.html("已加入购物车");
+                    $(this.addSucc).fadeIn("fast",function () {
+                        setTimeout(function () {
+                            $(this.addSucc).fadeOut("fast");
+                        }.bind(this),1000)
+                    }.bind(this));
+                    //显示立即结算
+                    this.showSettle();
+
+                    //根据用户插入购物车信息
+                    console.log(shoppingMsg);
+                    this.addShop(shoppingMsg);
+
+                    $.cookie("shoppingMsg",shoppingMsg);
+                    // console.log($.cookie("shoppingMsg"));
+
+                }else{
+                    shoppingMsg=[];
+                    shoppingMsg.push(shoppingCart);
+                    shoppingMsg=JSON.stringify(shoppingMsg);
+
+
+
+                    this.addSucc.html("已加入购物车");
+                    $(this.addSucc).fadeIn("fast",function () {
+                        setTimeout(function () {
+                            $(this.addSucc).fadeOut("fast");
+                        }.bind(this),1000)
+                    }.bind(this));
+                    //显示立即结算
+                    this.showSettle();
+
+                    //根据用户插入购物车信息
+                    console.log(shoppingMsg);
+                    this.addShop(shoppingMsg);
+
+                    //加入缓存
+                    $.cookie("shoppingMsg",shoppingMsg);
+
+
+                }
+
+                var shopCookie=$.cookie("shoppingMsg");
+                var shopMsg=JSON.parse(shopCookie);
+                // console.log(shopMsg.length);
+                //改变购物车小图标
+                this.shoppingIcon=$("#head .rightNav .cart a");
+                // console.log(this.shoppingIcon);
+                $(this.shoppingIcon).css("background","url(img/icon-cart-active.png) no-repeat center");
+                $(this.shoppingIcon).css("background-size","14px 14px");
+                $(this.shoppingIcon).parent().find("i").html(shopMsg.length);
+            }
+        },
+        showSettle:function (msg) {
+            //显示立即结算
+            $(this.addArea).find(".addNow").animate({
+                width:"155"
+            },500);
+            $(this.addArea).find(".settlement").animate({
+                width:"155"
+            },500);
+        },
+        addShop:function (msg) {
+            var uname=$("#uname");
+            console.log($(uname).html());
+            if(!$(uname).html()) return;
+            var opt={
+                url:"data/03_addShopGood.php",
+                type:"POST",
+            }
+            $.ajax({
+                url:"data/03_addShopGood.php",
+                type:"POST",
+                data:`goodMsg=${msg}&uname=${$(uname).html()}`
+            }).then(function (res) {
+                console.log(res);
+
+            })
+        }
+    }
+    new AddShoppingCar();
 
 })
