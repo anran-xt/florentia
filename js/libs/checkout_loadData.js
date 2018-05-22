@@ -32,7 +32,7 @@ define(["jquery","jqueryCookie"],function () {
                             <p class="name"> ${item.goodDetail.gname}</p>
                             <p class="option">${item.goodSize}</p>
                             <p class="money">
-                                ￥${item.goodDetail.gnowprice}.00
+                                ￥<span>${item.goodDetail.gnowprice}</span>.00
                                 <span class="moneyOld">￥${item.goodDetail.goldprice}.00</span>
                             </p>
                         </div>
@@ -47,7 +47,7 @@ define(["jquery","jqueryCookie"],function () {
                                 <i></i>
                                 <span class="deleteItem">删除</span>
                             </div>
-                            <div class="total">￥${item.goodDetail.gnowprice*item.goodNum}.00</div>
+                            <div class="total">￥<span>${item.goodDetail.gnowprice*item.goodNum}</span>.00</div>
                         </div>
                     </div>
                 </div>`;
@@ -57,6 +57,7 @@ define(["jquery","jqueryCookie"],function () {
             $(this.leftArea).html(allStr);
             $("#goodMain .rightArea .goodNum span").html(totalNum);
             $("#goodMain .rightArea .total .totalMoney .nowTotal").html("￥"+totalMoney+".00");
+            $("#goodMain .rightArea .subTotal span").html("￥"+totalMoney+".00");
             $("#goodMain .rightArea .total .totalMoney .saveMoney").html("（已省￥"+(totalOriginMoney-totalMoney)+".00");
 
 
