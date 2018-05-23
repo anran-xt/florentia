@@ -3,10 +3,11 @@
  */
 define(["jquery","jqueryCookie"],function () {
     function CheckOutData(){
-        if(!$.cookie("shoppingMsg")) return;
+        // console.log($.cookie("shoppingMsg")=="null");
+        if(!$.cookie("shoppingMsg")||$.cookie("shoppingMsg")=="[]") return;
+        console.log(JSON.parse($.cookie("shoppingMsg")));
         this.data=JSON.parse($.cookie("shoppingMsg"));
         this.leftArea=$("#goodMain .leftArea");
-        // console.log(JSON.parse(this.data));
         this.init();
     }
     CheckOutData.prototype={
@@ -17,14 +18,15 @@ define(["jquery","jqueryCookie"],function () {
             var totalOriginMoney=0;
             var totalNum=this.data.length;
             for(var i=0;i<this.data.length;i++){
-                // console.log(this.data[i]);
+                console.log(this.data[i]);
                 var item=this.data[i];
                 totalMoney+=parseInt(this.data[i].goodNum*this.data[i].goodDetail.gnowprice);
                 totalOriginMoney+=parseInt(this.data[i].goodNum*this.data[i].goodDetail.goldprice);
 
                 // console.log(item.goodDetail.gbrand);
                 var str=
-                    `<div class="brand">
+                    `<div class="brand"> 
+                    <i class="hidden" hidden>${item.goodId}</i>
                     <div class="brandTitle">${item.goodDetail.gbrand}</div>
                     <div class="item">
                         <div class="img"><img src="${item.goodDetail.gsrc}" alt=""></div>
@@ -32,8 +34,8 @@ define(["jquery","jqueryCookie"],function () {
                             <p class="name"> ${item.goodDetail.gname}</p>
                             <p class="option">${item.goodSize}</p>
                             <p class="money">
-                                ￥<span>${item.goodDetail.gnowprice}</span>.00
-                                <span class="moneyOld">￥${item.goodDetail.goldprice}.00</span>
+                                ￥<span class="nowMoney">${item.goodDetail.gnowprice}</span>.00
+                                ￥<span class="moneyOld">${item.goodDetail.goldprice}</span>.00
                             </p>
                         </div>
                         <div class="numpicker">

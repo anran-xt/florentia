@@ -24,7 +24,8 @@ define(["jquery","jqueryCookie"],function ($) {
                 this.shopMsg="";
             }
             //2.如果有商品已缓存直接读取缓存的商品信息
-            if(this.shopMsg&&this.shopMsg!=""){
+            console.log(this.shopMsg=="");
+            if(this.shopMsg&&this.shopMsg!=""&&this.shopMsg!="[]"){
                 //2.1改变购物车小图标
                 this.shoppingIcon=$("#head .rightNav .cart a");
                 // console.log(this.shoppingIcon);
@@ -49,13 +50,18 @@ define(["jquery","jqueryCookie"],function ($) {
                         //设置购物车详情cookie,以便结算页面使用
                         $.cookie("shoppingMsg",JSON.stringify(res));
 
-                        //3.1.3改变购物车小图标
-                        this.shoppingIcon=$("#head .rightNav .cart a");
+                        //3.1.3判断是否改变购物车小图标
                         this.shopMsg=$.cookie("shoppingMsg");
-                        this.shopMsg=JSON.parse(this.shopMsg);
-                        $(this.shoppingIcon).css("background","url(img/icon-cart-active.png) no-repeat center");
-                        $(this.shoppingIcon).css("background-size","14px 14px");
-                        $(this.shoppingIcon).parent().find("i").html(this.shopMsg.length);
+                        console.log(this.shopMsg);
+                        if(this.shopMsg!=""&&this.shopMsg!="[]"){
+                            console.log("changed");
+                            this.shoppingIcon=$("#head .rightNav .cart a");
+                            this.shopMsg=JSON.parse(this.shopMsg);
+                            $(this.shoppingIcon).css("background","url(img/icon-cart-active.png) no-repeat center");
+                            $(this.shoppingIcon).css("background-size","14px 14px");
+                            $(this.shoppingIcon).parent().find("i").html(this.shopMsg.length);
+                        }
+
 
 
                     })

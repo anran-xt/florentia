@@ -19,8 +19,6 @@ $sql="update usertable set ushopcar='$msg' where uname='$uname'";
 $res=mysqli_query($conn,$sql);
 if($res){
     echo "更新成功";
-
-
 }else{
     echo "更新失败";
 }
