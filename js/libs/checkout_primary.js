@@ -28,6 +28,12 @@ define(["jquery","jqueryCookie","checkoutData"],function () {
 
             //2.删除商品
             this.deleteItem.on("click.delete",$.proxy(this.deleteGood,this));
+
+            //3.结算
+            var settle=$(this.rightArea).find(".settle");
+            settle.on("click",function () {
+                alert("有钱吗，还结算，没钱，没钱还不滚去敲代码");
+            })
         },
         changeNum:function (event) {
             //1.增减方式
@@ -57,7 +63,37 @@ define(["jquery","jqueryCookie","checkoutData"],function () {
             //修改该商品总价
             $(itemTotal).html($(unitPrice).html()*$(pickerSum).html());
 
+            //修改购物车总体情况
             this.changeTotal();
+
+            //更新cookie
+            var shoppingMsg=$.cookie("shoppingMsg");
+            shoppingMsg=JSON.parse(shoppingMsg);
+            //获取goodId
+            var goodId=$(originTarget).parents(".brand").find(".hidden").html();
+            console.log(goodId);
+
+            //修改cookie
+            for(var i=0;i<shoppingMsg.length;i++){
+                if(goodId==shoppingMsg[i].goodId){
+                    shoppingMsg[i].goodNum=$(pickerSum).html();
+                    $.cookie("shoppingMsg",JSON.stringify(shoppingMsg));
+                    console.log($.cookie("shoppingMsg"));
+                    break;
+                }
+            }
+
+            var user=$("#uname");
+            if(user){
+                $.ajax({
+                    url:"data/03_addShopGood.php",
+                    type:"POST",
+                    data:"uname="+$(user).html()+"&goodMsg="+JSON.stringify(shoppingMsg)
+                }).then(function (res) {
+                    console.log(res);
+                })
+            }
+
 
 
         },
