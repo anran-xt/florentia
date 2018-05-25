@@ -52,6 +52,12 @@ define(["jquery","jqueryCookie"], function ($) {
                         }else{
                             alert("用户名或密码错误");
                         }
+                    }else if(this.type=="register"){
+                        if(res=="1"){
+                            alert("注册成功,请返回登录");
+                        }else{
+                            alert("注册失败,用户名已存在");
+                        }
                     }
                     // alert(res);
                 }.bind(this))

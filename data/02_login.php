@@ -23,7 +23,7 @@ if($res!=0){
     if($type=="login"){
         echo(1);
         return;
-    }else if($type=="register"){
+    }else{
         die("该用户名已存在");
     }
 }else{
@@ -34,7 +34,9 @@ if($res!=0){
         $sql="insert into usertable VALUES(default,'$uname','$upwd',default)";
         $res=mysqli_query($conn,$sql);
         if($res){
-            echo("注册成功");
+            echo("1");
+        }else{
+            echo "0";
         }
     }
 }

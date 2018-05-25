@@ -9,6 +9,7 @@ requirejs.config({
         "toggleShow":"./js/libs/common_toggleShow",
         "loadPart":"./js/libs/common_loadPart",
         "getUser":"./js/libs/common_getUserCookie",
+        "userExit":"./js/libs/common_exit",
 
 
         "scrollTrigger":"./js/libs/index_scrollTrigger",

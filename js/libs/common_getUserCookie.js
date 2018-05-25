@@ -2,7 +2,7 @@
  * Created by lenovo1 on 2018/5/21.
  */
 ;
-define(["jquery","jqueryCookie"],function ($) {
+define(["jquery","jqueryCookie","userExit"],function ($,cookie,userExit) {
     function GetUser() {
         this.topNav=$("#head .nav .topNav");
         this.userCookie=$.cookie("user");
@@ -19,6 +19,8 @@ define(["jquery","jqueryCookie"],function ($) {
                 this.topNav.find(".register").remove();
                 $(this.topNav).html(`<li><a href="#" id="uname">${this.userCookie}</a> <a href="#" class="exit">退出</a><span></span></li>`+$(this.topNav).html());
 
+                //用户登陆后，添加用户退出功能，
+                new userExit();
                 //用户登陆则清除购物车缓存
                 $.cookie("shoppingMsg","");
                 this.shopMsg="";
